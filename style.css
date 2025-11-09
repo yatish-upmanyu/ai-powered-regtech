@@ -1,0 +1,9 @@
+/* style.css */
+body {
+    background-color: #F5F5F5;
+    color: #212121;
+}
+.main-title {
+    font-size: 2.5em;
+    /* ... all other CSS rules ... */
+}

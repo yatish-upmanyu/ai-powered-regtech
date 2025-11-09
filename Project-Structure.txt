@@ -1,0 +1,65 @@
+pythonMVC/
+│
+├── app/
+│   ├── controller/
+│   │   ├── __init__.py
+│   │   └── parse_xsd.py
+│   ├── model/
+│   │   ├── __init__.py
+│   │   └── compare_elements.py
+│   ├── view/
+│   │   ├── __init__.py
+│   │   └── 
+│   ├── templates/
+│   │   ├── 
+│   │   └── 
+│   ├── static/
+│   │   ├── css/
+│   │   └── js/
+│   ├── config/
+│   │   ├── __init__.py
+│   │   ├── 
+│   │
+│   │
+│   ├── resources
+│   │   ├───data
+│   │         ├──old_version/EPC115-06_2021_V1.0_pacs.008.001.02_Update.xsd
+│   │	      ├──new_version/EPC115-06_2023_V1.0_pacs.008.001.08_Update.xsd
+│   │	      ├──impacts/impacta_summary.txt, test_scenarious.txt
+│   │   
+│   │   
+│   │
+│   ├── services/
+│   │   ├── __init__.py
+│   │   └── aiconnections.py
+│   └── ml/
+│       ├── __init__.py
+│       ├── impact_analyzer.py
+│       ├── 
+│       └── 
+│
+├── tests/
+│   ├── __init__.py
+│   ├── test_compare_elements.py
+│   ├── test_impact_analyzer.py
+│   └── test_parse_xsd.py
+│
+├── README.md
+├── requirements.txt
+├── run.py
+└── .env (for environment variables)
+
+
+
+1. app/controller/: Contains the business logic and route handlers for the application.
+2. app/model/: Defines the data models and handles database interactions.
+3. app/view/: Manages rendering templates and serving static content to the user.
+4. app/templates/: Holds HTML templates used for rendering web pages.
+5. app/static/: Contains static files like CSS and JavaScript.
+6. app/static/css/: Stores CSS files for styling the web pages.
+7. app/static/js/: Holds JavaScript files for client-side scripting.
+8. config/: Includes configuration settings and environment-specific files.
+9. app/services/: Implements reusable service classes or utility functions.
+10.ml/: Contains machine learning scripts and models.
+11.tests/: Houses test cases and testing configurations.
+12.idea/: Stores JetBrains IDE project settings and configurations.

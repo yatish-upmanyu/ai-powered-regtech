@@ -1,0 +1,29 @@
+[theme]
+
+# One of "light" or "dark".
+base = "light"
+
+# Primary accent color for interactive elements.
+primaryColor = '#808080' # Grey
+
+# Background color for the main content area.
+# backgroundColor = '#FFA500' # Orange
+backgroundColor = '#ffffff' # White
+
+
+# Background color used for the sidebar and most interactive widgets.
+secondaryBackgroundColor = '#ADD8E6' # Lighter Blue
+
+# Color used for almost all text.
+textColor = "Blue"
+
+# Font family for all text in the app, except code blocks. One of "sans serif",
+# "serif", or "monospace".
+font = "sans"
+
+[client]
+showSidebarNavigation = false
+toolbarMode = "minimal"
+
+[ui]
+hideTopBar = true

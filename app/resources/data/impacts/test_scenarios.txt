@@ -1,0 +1,68 @@
+## BDD Test Scenarios for SEPA Credit Transfer Message Changes:
+
+**Note:** These scenarios focus on the structural changes and data type validations of the added, removed, and modified elements. Functional testing based on business rules should be done separately.
+
+**Legend:**
+
+* **Given:** The pre-condition or initial context of the scenario.
+* **When:** The action or event that triggers the system under test.
+* **Then:** The expected outcome or result of the action.
+
+
+**Added Elements:**
+
+**Scenario Outline:** Validation of Added Element - `<Element Path>`
+
+**Given:** A SEPA Credit Transfer message is being constructed
+**When:**  The element `<Element Path>` is populated
+**Then:** The element `<Element Path>` MUST comply with data type `<New Type>` and be successfully processed.
+
+**Examples:**
+
+| Element Path                                                                    | New Type                                                                  | Additional Notes                                                     |
+|---------------------------------------------------------------------------------|--------------------------------------------------------------------------|----------------------------------------------------------------------|
+| /Document/FIToFICstmrCdtTrf/CdtTrfTxInf/Cdtr/PstlAdr/TwnLctnNm                 | Max35Text                                                                | Yellow Field: Ensure it accepts a maximum of 35 characters.         |
+| /Document/FIToFICstmrCdtTrf/CdtTrfTxInf/Dbtr/PstlAdr/BldgNm                   | Max35Text                                                                | Yellow Field: Ensure it accepts a maximum of 35 characters.         |
+| /Document/FIToFICstmrCdtTrf/CdtTrfTxInf/Dbtr/Id/OrgId/AnyBIC                   | AnyBICDec2014Identifier                                                    | Ensure it validates against the AnyBICDec2014Identifier format.      |
+| /Document/FIToFICstmrCdtTrf/CdtTrfTxInf/CdtrAcct/Prxy                          | ProxyAccountIdentification1_EPC115-06_2023_V1.0_SCT_InterPSP              | Yellow Field: New complex type, further tests required for its elements. | 
+
+
+**Removed Elements:**
+
+**Scenario Outline:**  Validation of Removed Element - `<Element Path>`
+
+**Given:** A SEPA Credit Transfer message is being constructed
+**When:** The element `<Element Path>` is present
+**Then:** The message MUST be rejected.
+
+**Examples:**
+
+| Element Path                                                                    | Additional Notes                             |
+|---------------------------------------------------------------------------------|----------------------------------------------|
+| /Document/FIToFICstmrCdtTrf/CdtTrfTxInf/UltmtCdtr/Id/OrgId/BICOrBEI           | Ensure this element is no longer accepted. |
+| /Document/FIToFICstmrCdtTrf/GrpHdr/InstdAgt/FinInstnId/BIC                   | Ensure this element is no longer accepted. |
+
+
+**Modified Elements:**
+
+**Scenario Outline:** Validation of Modified Element - `<Element Path>`
+
+**Given:** A SEPA Credit Transfer message is being constructed
+**When:** The element `<Element Path>` is populated
+**Then:** The element `<Element Path>` MUST comply with data type `<New Type>` and be successfully processed.
+
+**Examples:**
+
+| Element Path                                                                    | New Type                                                                        | Additional Notes                                                                     |
+|---------------------------------------------------------------------------------|------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| /Document/FIToFICstmrCdtTrf/CdtTrfTxInf/DbtrAgt                                | BranchAndFinancialInstitutionIdentification6_EPC115-06_2023_V1.0_SCT_InterPSP | Yellow Field: Ensure compatibility with new structure and data types.                |
+| /Document/FIToFICstmrCdtTrf/GrpHdr/PmtTpInf/SvcLvl/Cd                         | ExternalServiceLevel1Code_EPC115-06_2023_V1.0_SCT_InterPSP                   | Yellow Field: Ensure compatibility with updated code list values.                  |
+| /Document/FIToFICstmrCdtTrf/CdtTrfTxInf/Dbtr/Id/OrgId                         | OrganisationIdentification29_EPC115-06_2023_V1.0_SCT_InterPSP                 | Yellow Field: Ensure compatibility with new structure and data types.                |
+
+
+
+**General Notes:**
+
+* This is not an exhaustive list of scenarios. More specific test cases can be derived from these outlines based on the specific requirements of each element.
+*  Negative testing scenarios, such as providing invalid data types or exceeding character limits, should also be included for comprehensive testing. 
+*  Regression testing should be performed on existing functionalities to ensure they are not impacted by the changes. 
